@@ -4,6 +4,7 @@ const http = require('http')
 const bodyParser = require('body-parser')
 const hbs = require('express-handlebars')
 const favicon = require('serve-favicon')
+var serveIndex = require('serve-index');
 
 var app = express()
 app.engine('hbs', hbs.create({
@@ -31,7 +32,7 @@ app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
 app.use(favicon(path.join(__dirname, '/public/images/favicon.ico')))
 
 app.use(express.static(path.join(__dirname, '/public')))
-app.use('/public/', express.directory(path.join(__dirname, '/public')))
+app.use('/public', serveIndex(path.join(__dirname, '/public')))
 
 app.get('/', (req, res) => {
   res.render('index', { title: 'Home' })

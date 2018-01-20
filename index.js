@@ -31,6 +31,7 @@ app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
 app.use(favicon(path.join(__dirname, '/public/images/favicon.ico')))
 
 app.use(express.static(path.join(__dirname, '/public')))
+app.use('/public/', express.directory(path.join(__dirname, '/public')))
 
 app.get('/', (req, res) => {
   res.render('index', { title: 'Home' })

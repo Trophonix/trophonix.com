@@ -36,7 +36,7 @@ app.get('/', (req, res) => {
   res.render('index')
 })
 
-var port = process.env.port || 3001
+var port = 6001
 
 http.createServer(app).listen(port)
 

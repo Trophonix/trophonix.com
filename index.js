@@ -9,7 +9,7 @@ var app = express()
 app.engine('hbs', hbs.create({
   extname: 'hbs',
   defaultLayout: 'layout',
-  layoutsDir: path.join(__dirname, 'views', 'layouts'),
+  layoutsDir: path.join(__dirname, '/views/layouts'),
   helpers: {
     isEqual: function (a, b, opts) {
       if (a === b) {
@@ -20,7 +20,7 @@ app.engine('hbs', hbs.create({
     }
   }
 }).engine)
-app.set('views', path.join(__dirname, 'views'))
+app.set('views', path.join(__dirname, '/views'))
 app.set('view engine', 'hbs')
 
 app.use(bodyParser.json())       // to support JSON-encoded bodies
@@ -28,9 +28,9 @@ app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
   extended: true
 }))
 
-app.use(favicon(path.join(__dirname, 'public/images/favicon.ico')))
+app.use(favicon(path.join(__dirname, '/public/images/favicon.ico')))
 
-app.use(express.static('public'))
+app.use(express.static(path.join(__dirname, '/public')))
 
 app.get('/', (req, res) => {
   res.render('index', { title: 'Home' })

@@ -1,5 +1,6 @@
 const path = require('path')
 const express = require('express')
+const http = require('http')
 const bodyParser = require('body-parser')
 const hbs = require('express-handlebars')
 const favicon = require('serve-favicon')
@@ -30,15 +31,16 @@ app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
 
 app.use(favicon(path.join(__dirname, '/public/images/favicon.ico')))
 
-app.use('/', express.static('public'), serveIndex('public', {'icons': true}))
+app.use('/public', express.static('public'), serveIndex('public', {'icons': true}))
+app.use(express.static(path.join(__dirname, '/public')))
 
-// app.get('/', (req, res) => {
-//   res.render('index', { title: 'Home' })
-// })
+app.get('/', (req, res) => {
+  res.render('index', { title: 'Home' })
+})
 
 var port = 6001
 
-app.listen(port)
+http.createServer(app).listen(port)
 
 console.log('Started on port', port)
 

@@ -38,6 +38,8 @@ app.get('/', (req, res) => {
   res.render('index', { title: 'Home' })
 })
 
+app.get('/repo', (req, res) => res.redirect('repo.trophonix.com'))
+
 var port = 6001
 
 http.createServer(app).listen(port)

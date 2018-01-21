@@ -1,6 +1,4 @@
-.navbar .divider-vertical {
-    margin-top: 14px;
-    height: 24px;
-    border-left: 1px solid #f2f2f2;
-    border-image: linear-gradient(to bottom, gray, rgba(0, 0, 0, 0)) 1 100%;
+.divider-vertical {
+    padding-top: 14px;
+    padding-bottom: 14px;
 }

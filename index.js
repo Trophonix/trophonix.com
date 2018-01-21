@@ -1,6 +1,5 @@
 const path = require('path')
 const express = require('express')
-const http = require('http')
 const bodyParser = require('body-parser')
 const hbs = require('express-handlebars')
 const favicon = require('serve-favicon')
@@ -39,7 +38,7 @@ app.get('/', (req, res) => {
 
 var port = 6001
 
-http.createServer(app).listen(port)
+app.listen(port)
 
 console.log('Started on port', port)
 

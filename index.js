@@ -30,7 +30,7 @@ app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
 
 app.use(favicon(path.join(__dirname, '/public/images/favicon.ico')))
 
-app.use('/public', express.static('public'), serveIndex('public', {'icons': true}))
+app.use('/ftp', express.static('public'), serveIndex('public', {'icons': true}))
 
 app.get('/', (req, res) => {
   res.render('index', { title: 'Home' })

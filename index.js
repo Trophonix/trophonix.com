@@ -38,7 +38,7 @@ app.get('/', (req, res) => {
   res.render('index', { title: 'Home' })
 })
 
-app.get('/repo', (req, res) => res.redirect('https://repo.trophonix.com'))
+app.get('/repo', (req, res) => res.redirect('https://trophonix.com:8080'))
 
 var port = 6001
 

@@ -40,7 +40,7 @@ app.get('/', (req, res) => {
 
 app.get('/repo', (req, res) => res.redirect('http://trophonix.com:8080/'));
 
-var port = 6002;
+var port = 6001;
 
 http.createServer(app).listen(port);
 

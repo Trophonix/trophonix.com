@@ -34,7 +34,10 @@ app.use(favicon(path.join(__dirname, '/public/images/favicon.ico')));
 app.use('/public', express.static('public'), serveIndex('public', {'icons': true}));
 app.use(express.static(path.join(__dirname, '/public')));
 
-app.get('/repo', (req, res) => res.redirect('http://trophonix.com:8080/'));
+app.get('/repo', (req, res) => {
+  console.log('repo')
+  res.redirect('http://trophonix.com:8080/');
+});
 
 app.get('/', (req, res) => {
   res.render('index', { title: 'Home' });
